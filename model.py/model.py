@@ -20,6 +20,7 @@ print("Duplicate rows:", df.duplicated().sum())
 
 # Drop duplicates
 df = df.drop_duplicates()
+
 # Replace 0s with column mean for these columns
 cols_with_zeros = ['Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI']
 for col in cols_with_zeros:
