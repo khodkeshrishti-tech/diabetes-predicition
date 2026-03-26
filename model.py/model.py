@@ -12,6 +12,23 @@ from sklearn.metrics import accuracy_score, confusion_matrix, classification_rep
 
 # --- MEMBER 2: DATA CLEANING --- (Praveen)
 
+df = pd.read_csv("diabetes.csv")
+
+print("=== BEFORE CLEANING ===")
+print(df.isnull().sum())
+print("Duplicate rows:", df.duplicated().sum())
+
+# Drop duplicates
+df = df.drop_duplicates()
+
+# Replace 0s with column mean for these columns
+cols_with_zeros = ['Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI']
+for col in cols_with_zeros:
+    df[col] = df[col].replace(0, df[col].mean())
+
+print("\n=== AFTER CLEANING ===")
+print(df.isnull().sum())
+print("Shape:", df.shape)
 
 # --- MEMBER 3: VISUALIZATION / EDA --- (Harshvardhini)
 
