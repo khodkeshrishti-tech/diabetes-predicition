@@ -35,6 +35,18 @@ print("Shape:", df.shape)
 
 # --- MEMBER 4: FEATURE PREPARATION --- (Rohal)
 
+# Separate features and target
+X = df.drop('Outcome', axis=1)
+y = df['Outcome']
+
+# Scale the features
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+print("=== FEATURE PREPARATION DONE ===")
+print("Features shape:", X_scaled.shape)
+print("Target shape:", y.shape)
+print("Sample scaled values:\n", X_scaled[:3])
 
 # --- MEMBER 5: SPLITTING & TRAINING --- (Mathdevru)
 
